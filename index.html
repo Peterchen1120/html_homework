@@ -131,6 +131,54 @@
             font-style: italic;
         }
 
+        .exercise18-card {
+            width: min(920px, 100%);
+            margin: 0 0 36px;
+            padding: 34px 42px 28px;
+            background: #fff;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+        }
+
+        .exercise18-h1 {
+            margin: 0 0 62px;
+            width: fit-content;
+            padding: 0 6px 6px;
+            border-top: 8px solid #000;
+            text-shadow: 4px 4px 0 rgba(255, 182, 193, 0.85);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(42px, 4.8vw, 82px);
+            line-height: 1.05;
+        }
+
+        .exercise18-h2 {
+            margin: 0 0 56px;
+            padding: 6px 16px 8px;
+            border: 5px solid #d4d400;
+            outline: 2px solid #555;
+            background: #fff;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(32px, 4vw, 64px);
+            font-style: italic;
+            line-height: 1.1;
+        }
+
+        .exercise18-h3 {
+            margin: 6px 0 0;
+            text-align: right;
+            color: #1a2e67;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(24px, 2.6vw, 42px);
+            line-height: 1.1;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .exercise18-h3 span {
+            display: inline-block;
+            padding-bottom: 1px;
+            border-bottom: 3px solid #111;
+        }
+
         @media (max-width: 768px) {
             body {
                 margin: 16px;
@@ -148,12 +196,36 @@
             .sample {
                 margin-bottom: 22px;
             }
+
+            .exercise18-card {
+                padding: 18px 18px 16px;
+            }
+
+            .exercise18-h1 {
+                margin-bottom: 30px;
+            }
+
+            .exercise18-h2 {
+                margin-bottom: 30px;
+            }
+
+            .exercise18-h3 {
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
+    <h3>week5</h3>
     <div>
-        <h3>week5</h3>
+        <div class="exercise18-card">
+            <h1 class="exercise18-h1">This is heading 1</h1>
+            <h2 class="exercise18-h2">This is heading 2</h2>
+            <h3 class="exercise18-h3"><span>This is heading 3</span></h3>
+        </div>
+    </div>
+    <div>
+        
         <div class="card">
                 <h1 class="sample top">Hello World</h1>
                 <h1 class="sample middle">Hello World</h1>
