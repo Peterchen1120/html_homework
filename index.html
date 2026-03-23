@@ -2,11 +2,30 @@
 <html lang="zh-TW">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Practice</title>
     <style>
+        :root {
+            --page-bg: #f4f4f4;
+            --panel-bg: #ffffff;
+            --top-fill: #aed6e8;
+            --top-border: #ff5a3d;
+            --middle-fill: #ffef00;
+            --middle-border: #1e90ff;
+            --bottom-fill: #43bc7a;
+            --dot-color: #8f8f8f;
+            --note-color: #ff2b2b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: "Microsoft JhengHei", sans-serif;
             margin: 30px;
+            background: var(--page-bg);
+            color: #111;
+            font-family: "Microsoft JhengHei", sans-serif;
         }
 
         div {
@@ -46,9 +65,103 @@
             border: none;
             margin-top: 10px;
         }
+
+        .assignment {
+            margin-top: 56px;
+            padding-top: 28px;
+            border-top: 3px solid #d0d0d0;
+        }
+
+        .instruction {
+            margin: 0 0 48px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: clamp(22px, 2.3vw, 34px);
+            line-height: 1.45;
+            font-weight: 400;
+        }
+
+        .card {
+            width: min(900px, 100%);
+            margin: 0;
+            background: var(--panel-bg);
+            padding: 32px 16px 28px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+        }
+
+        .sample {
+            margin: 0 0 34px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(36px, 4vw, 58px);
+            font-weight: 700;
+            line-height: 1.1;
+            color: #000;
+        }
+
+        .sample:last-child {
+            margin-bottom: 0;
+        }
+
+        .top {
+            padding: 12px 14px;
+            background: var(--top-fill);
+            border: 5px solid var(--top-border);
+            outline: 5px solid var(--top-border);
+            outline-offset: 8px;
+        }
+
+        .middle {
+            padding: 8px 12px;
+            background: var(--middle-fill);
+            border: 4px solid var(--middle-border);
+            border-radius: 18px;
+        }
+
+        .bottom {
+            padding: 16px 14px;
+            background: var(--bottom-fill);
+            border: 10px dotted var(--dot-color);
+        }
+
+        .note {
+            margin: 38px 0 0;
+            text-align: left;
+            color: var(--note-color);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: clamp(24px, 2.8vw, 42px);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin: 16px;
+            }
+
+            iframe {
+                width: 100%;
+                height: 360px;
+            }
+
+            .card {
+                padding: 22px 10px 20px;
+            }
+
+            .sample {
+                margin-bottom: 22px;
+            }
+        }
     </style>
 </head>
 <body>
+    <div>
+        <h3>week5</h3>
+        <div class="card">
+                <h1 class="sample top">Hello World</h1>
+                <h1 class="sample middle">Hello World</h1>
+                <h1 class="sample bottom">Hello World</h1>
+        </div>
+    </div>
+
+
     <div>
         <h3>week4</h3>
         <p>code example</p>
@@ -59,30 +172,30 @@ var person = {
     studentId = "113403545"
 }
 </code></pre>
-        <form id ="text_form">
-            <p a>First Name</p>
-            <input type = text name = fname value="Zheng Wei">
+        <form id="text_form">
+            <p>First Name</p>
+            <input type="text" name="fname" value="Zheng Wei">
             <p>Last Name</p>
-            <input type = text name = lname value="Chen"> 
+            <input type="text" name="lname" value="Chen">
             <p>Student Id</p>
-            <input type = text name = id value="113403545"><br><br>
-            <input type = "submit">
-            <input type = "reset">
+            <input type="text" name="id" value="113403545"><br><br>
+            <input type="submit">
+            <input type="reset">
         </form>
-        <br>     
+        <br>
         <svg width="600" height="400">
             <rect x="50" y="50" width="250" height="250"
                 style="fill:blue; stroke:black; stroke-width:8;" />
-
             <circle cx="300" cy="175" r="110"
-                    style="fill:yellow; stroke:red; stroke-width:8;" />
+                style="fill:yellow; stroke:red; stroke-width:8;" />
         </svg>
-       
     </div>
+
     <div>
         <h3>week3</h3>
-        <iframe src="https://ncueeclass.ncu.edu.tw/"></iframe>
+        <iframe src="https://ncueeclass.ncu.edu.tw/" title="NCU eclass"></iframe>
     </div>
+
     <div>
         <h3>week2</h3>
         <table>
@@ -91,11 +204,12 @@ var person = {
                 <th>Student Id</th>
             </tr>
             <tr>
-                <td>陳政煒</td>
+                <td>Chen Zheng Wei</td>
                 <td>113403545</td>
             </tr>
         </table>
     </div>
-    
+
+        
 </body>
 </html>
