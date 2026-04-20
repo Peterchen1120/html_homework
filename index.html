@@ -34,10 +34,12 @@
 
         table {
             border-collapse: collapse;
+            /* 調整作業表格的基礎寬度 */
+            min-width: 200px;
         }
 
         th, td {
-            padding: 5px;
+            padding: 10px; /* 稍微加大 padding 讓外觀更接近圖示 */
             border: 1px solid black;
             text-align: left;
         }
@@ -46,18 +48,37 @@
             background-color: #f2f2f2;
         }
 
-        .c1 {
-            color: blue;
+        /* --- 新增：作業要求的表格樣式 --- */
+        .assignment-table th {
+            background-color: #707070;
+            color: white;
+        }
+        .yellow-bg {
+            background-color: #FFFF00;
+        }
+        .white-bg {
+            background-color: #FFFFFF;
         }
 
-        .c2 {
-            color: red;
+        /* --- 新增：固定位置的 Div 樣式 --- */
+        .fixed-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            height: 120px;
+            border: 3px solid #76b900;
+            padding: 10px;
+            background-color: white;
+            font-size: 14px;
+            z-index: 1000; /* 確保它在最上層 */
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
         }
 
-        .font_box {
-            width: 100ch;
-        }
-
+        /* 原有的樣式保持不變 */
+        .c1 { color: blue; }
+        .c2 { color: red; }
+        .font_box { width: 100ch; }
         iframe {
             display: block;
             width: 500px;
@@ -65,21 +86,11 @@
             border: none;
             margin-top: 10px;
         }
-
         .assignment {
             margin-top: 56px;
             padding-top: 28px;
             border-top: 3px solid #d0d0d0;
         }
-
-        .instruction {
-            margin: 0 0 48px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: clamp(22px, 2.3vw, 34px);
-            line-height: 1.45;
-            font-weight: 400;
-        }
-
         .card {
             width: min(900px, 100%);
             margin: 0;
@@ -87,7 +98,6 @@
             padding: 32px 16px 28px;
             box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
         }
-
         .sample {
             margin: 0 0 34px;
             font-family: Georgia, "Times New Roman", serif;
@@ -96,11 +106,6 @@
             line-height: 1.1;
             color: #000;
         }
-
-        .sample:last-child {
-            margin-bottom: 0;
-        }
-
         .top {
             padding: 12px 14px;
             background: var(--top-fill);
@@ -108,29 +113,17 @@
             outline: 5px solid var(--top-border);
             outline-offset: 8px;
         }
-
         .middle {
             padding: 8px 12px;
             background: var(--middle-fill);
             border: 4px solid var(--middle-border);
             border-radius: 18px;
         }
-
         .bottom {
             padding: 16px 14px;
             background: var(--bottom-fill);
             border: 10px dotted var(--dot-color);
         }
-
-        .note {
-            margin: 38px 0 0;
-            text-align: left;
-            color: var(--note-color);
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: clamp(24px, 2.8vw, 42px);
-            font-style: italic;
-        }
-
         .exercise18-card {
             width: min(920px, 100%);
             margin: 0 0 36px;
@@ -138,7 +131,6 @@
             background: #fff;
             box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
         }
-
         .exercise18-h1 {
             margin: 0 0 62px;
             width: fit-content;
@@ -147,9 +139,7 @@
             text-shadow: 4px 4px 0 rgba(255, 182, 193, 0.85);
             font-family: Georgia, "Times New Roman", serif;
             font-size: clamp(42px, 4.8vw, 82px);
-            line-height: 1.05;
         }
-
         .exercise18-h2 {
             margin: 0 0 56px;
             padding: 6px 16px 8px;
@@ -159,20 +149,15 @@
             font-family: Georgia, "Times New Roman", serif;
             font-size: clamp(32px, 4vw, 64px);
             font-style: italic;
-            line-height: 1.1;
         }
-
         .exercise18-h3 {
             margin: 6px 0 0;
             text-align: right;
             color: #1a2e67;
             font-family: Georgia, "Times New Roman", serif;
             font-size: clamp(24px, 2.6vw, 42px);
-            line-height: 1.1;
             font-weight: 700;
-            text-decoration: none;
         }
-
         .exercise18-h3 span {
             display: inline-block;
             padding-bottom: 1px;
@@ -180,42 +165,53 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                margin: 16px;
-            }
-
-            iframe {
-                width: 100%;
-                height: 360px;
-            }
-
-            .card {
-                padding: 22px 10px 20px;
-            }
-
-            .sample {
-                margin-bottom: 22px;
-            }
-
-            .exercise18-card {
-                padding: 18px 18px 16px;
-            }
-
-            .exercise18-h1 {
-                margin-bottom: 30px;
-            }
-
-            .exercise18-h2 {
-                margin-bottom: 30px;
-            }
-
-            .exercise18-h3 {
-                text-align: left;
-            }
+            body { margin: 16px; }
+            iframe { width: 100%; height: 360px; }
+            .card { padding: 22px 10px 20px; }
+            .exercise18-card { padding: 18px 18px 16px; }
+            .exercise18-h3 { text-align: left; }
+            /* 行動版調整固定盒子的位置，避免擋住內容 */
+            .fixed-box { width: 120px; height: 100px; font-size: 12px; }
         }
     </style>
 </head>
 <body>
+    <div class="fixed-box">
+        This div element has position: fixed;
+    </div>
+
+    <h3>week7</h3>
+    <div>
+        <div class="exercise18-card">
+            <p>Table Assignment:</p>
+            <table class="assignment-table">
+                <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="yellow-bg">
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr class="white-bg">
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr class="yellow-bg">
+                        <td>3</td>
+                        <td>3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>我相信題目是要我這樣固定綠色框框的 : D</p>
+    </div>
+
+
+
     <h3>week5</h3>
     <div>
         <div class="exercise18-card">
@@ -224,15 +220,14 @@
             <h3 class="exercise18-h3"><span>This is heading 3</span></h3>
         </div>
     </div>
+
     <div>
-        
         <div class="card">
                 <h1 class="sample top">Hello World</h1>
                 <h1 class="sample middle">Hello World</h1>
                 <h1 class="sample bottom">Hello World</h1>
         </div>
     </div>
-
 
     <div>
         <h3>week4</h3>
@@ -281,7 +276,5 @@ var person = {
             </tr>
         </table>
     </div>
-
-        
 </body>
 </html>
