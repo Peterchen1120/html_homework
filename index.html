@@ -25,7 +25,7 @@
             margin: 30px;
             background: var(--page-bg);
             color: #111;
-            font-family: "Microsoft JhengHei", sans-serif;
+            font-family: "Microsoft JhengHei", "Meiryo", "MS PGothic", sans-serif;       
         }
 
         div {
@@ -173,6 +173,40 @@
             /* 行動版調整固定盒子的位置，避免擋住內容 */
             .fixed-box { width: 120px; height: 100px; font-size: 12px; }
         }
+        .poem-container {
+        width: 100%;
+        max-width: 800px;
+        line-height: 1.6;
+        padding: 20px;
+        background: white;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        overflow: hidden; /* 清除浮動影響 */
+        }
+
+        /* 右側浮動框 */
+        .float-scroll-box {
+            float: right;
+            width: 150px;
+            height: 150px;
+            border: 4px solid #76b900; /* 綠色粗框 */
+            margin-left: 20px;
+            padding: 10px;
+            overflow: auto; /* 重點：自動顯示捲軸 */
+            background: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* inline-block 方塊 (Love 的黃色底) */
+        .love-box {
+            display: inline-block;
+            background-color: yellow;
+            border: 1px solid blue;
+            padding: 0 5px;
+            margin: 0 2px;
+            line-height: 1.2;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -207,6 +241,50 @@
             </table>
         </div>
         <p>我相信題目是要我這樣固定綠色框框的 : D</p>
+        <div class="poem-container">
+            <div class="float-scroll-box">
+                A float div with overflow auto. A float div with overflow auto. A float div with overflow auto.
+            </div>
+            <pre>
+ベテルギウス 參宿四(複歌) 
+by 優里
+
+僕ら見つけあって　手繰りあって　同じ空
+boku ra mitsuke atte     taguri atte     onaji sora
+我們互相發現彼此　互相牽引　在同片天空底下
+
+輝くのだって　二人だって　約束した
+kagayaku no datte     futari datte     yakusoku shi ta
+我們兩個人　曾經約定　要閃閃發光
+
+遥か遠く終わらないべテルギウス
+haruka tooku owarana i <span class="love-box">beterugiusu</span>
+在遙遠的遠方永不停止閃耀的<span class="love-box">參宿四</span>
+
+誰かに繋ぐ魔法
+dare ka ni tsunagu mahou
+有著連繫某人的魔法
+
+
+僕ら　肩並べ　手取り合って　進んでく
+boku ra     kata narabe     tetori atte     susunde ku
+我們　肩並肩　牽起彼此的手　前進著
+
+辛い時だって　泣かないって　誓っただろう
+tsurai toki datte     nakanaitte     chikatta da ro u
+無論是多麼難受的時刻　也發誓過　不會哭泣了對吧
+
+遥か遠く終わらないべテルギウス
+haruka tooku owarana i <span class="love-box">beterugiusu</span>
+在遙遠的遠方永不停止閃耀的<span class="love-box">參宿四</span>
+
+君にも見えるだろう　祈りが
+kimi ni mo mie ru da ro u   inori ga
+你也看的到吧　我的祈禱
+
+            </pre>
+        </div>
+        <p>題目上說just long sentence，那我放歌詞可以吧 : D</p>
     </div>
 
 
