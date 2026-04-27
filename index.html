@@ -207,9 +207,239 @@
             line-height: 1.2;
             font-weight: bold;
         }
+/* =========================
+   Week 10 - 指定按鈕與圖片資訊區
+   所有 class 使用 wk10- 前綴，避免和前面作業重複
+   ========================= */
+
+.wk10-section {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 3px solid #d0d0d0;
+}
+
+/* 抵消你原本全域 div { margin-bottom: 20px; } 的影響 */
+.wk10-section div,
+.wk10-demo div {
+    margin-bottom: 0;
+}
+
+.wk10-demo {
+    width: 760px;
+    max-width: 100%;
+    margin: 0 0 36px;
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    font-family: Roboto, Arial, "Microsoft JhengHei", sans-serif;
+    font-size: 13px;
+    color: #2f2f2f;
+}
+
+/* 上方灰色列 */
+.wk10-header {
+    height: 35px;
+    padding: 0 18px;
+    background: #f6f6f6;
+    border-bottom: 1px solid #eaeaea;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wk10-title {
+    color: #707070;
+    font-weight: normal;
+}
+
+/* 題目指定按鈕：
+   height: 22px;
+   radius: 8px;
+   background: #ffffff;
+   outline/border: 1px #2f2f2f;
+   font-size: 13px;
+*/
+.wk10-info-btn {
+    height: 22px;
+    min-width: 78px;
+    padding: 0 12px;
+
+    background: #ffffff;
+    border: 1px solid #2f2f2f;
+    border-radius: 8px;
+
+    color: #2f2f2f;
+    font-family: Roboto, Arial, "Microsoft JhengHei", sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+/* 滑過按鈕 */
+.wk10-info-btn:hover {
+    background: #f3f3f3;
+}
+
+/* 按下按鈕 */
+.wk10-info-btn:active {
+    background: #e6e6e6;
+}
+
+/* 鍵盤 Tab 選到按鈕時 */
+.wk10-info-btn:focus {
+    outline: 2px solid #8ab4f8;
+    outline-offset: 2px;
+}
+
+/* 內容區：對應圖上左右 20 / 26 類似的留白 */
+.wk10-content {
+    padding: 20px 26px 26px 20px;
+}
+
+/* 圖片外框：
+   題目圖上標 496px
+   圖片本身是 450x240
+*/
+.wk10-preview-frame {
+    width: 496px;
+    max-width: 100%;
+    min-height: 240px;
+
+    margin: 0 auto;
+    background: #ffe5bf;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wk10-preview-img {
+    width: 450px;
+    max-width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 詳細資訊外層：
+   總寬度 496px
+   距離圖片下方 10px
+*/
+/* 詳細資訊外層 */
+.wk10-detail-wrap {
+    width: 496px;
+    max-width: 100%;
+
+    margin: 10px auto 0;
+    padding: 0 0 10px;
+
+    background: #ffffff;
+    display: none;
+}
+
+.wk10-detail-wrap.wk10-is-visible {
+    display: block;
+}
+
+/* 綠色資訊區：用 flex column + gap 做出每列中間的白色間隔 */
+.wk10-detail-panel {
+    background: #ffffff;
+    color: #707070;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    font-family: Roboto, Arial, "Microsoft JhengHei", sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* 每一條綠色資訊列 */
+.wk10-detail-row {
+    min-height: 18px;
+    padding: 0 10px;
+
+    background: #8df38f;
+    color: #707070;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: none;
+    word-break: break-all;
+
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 路徑那列比較長，允許換行，所以會自然變高 */
+.wk10-detail-row:last-child {
+    min-height: 36px;
+    align-items: flex-start;
+    padding-top: 2px;
+}
+/* 小螢幕時避免超出畫面 */
+@media (max-width: 768px) {
+    .wk10-demo {
+        width: 100%;
+    }
+
+    .wk10-header {
+        padding: 0 12px;
+    }
+
+    .wk10-content {
+        padding: 16px 12px 20px;
+    }
+
+    .wk10-preview-frame,
+    .wk10-detail-wrap {
+        width: 100%;
+    }
+
+    .wk10-preview-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 450 / 240;
+    }
+}
     </style>
 </head>
 <body>
+    <h3>week10</h3>
+
+<div class="wk10-section">
+    <div class="wk10-demo">
+        <div class="wk10-header">
+            <div class="wk10-title">預覽</div>
+            <button id="wk10InfoBtn" class="wk10-info-btn" type="button">查看資訊</button>
+        </div>
+
+        <div class="wk10-content">
+            <div class="wk10-preview-frame">
+                <img
+                    class="wk10-preview-img"
+                    src="https://picsum.photos/450/240?random=10"
+                    alt="Preview image">
+            </div>
+
+            <div id="wk10DetailPanel" class="wk10-detail-wrap">
+                <div class="wk10-detail-panel">
+                    <div class="wk10-detail-row">拍攝日期：2017/10/12</div>
+                    <div class="wk10-detail-row">檔名：20171012_1.jpg</div>
+                    <div class="wk10-detail-row">大小：496.97KB</div>
+                    <div class="wk10-detail-row">路徑：\\designcenter-qnap.com.tw\DesignCenter\PM\RD\Image\sample</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <div class="fixed-box">
         This div element has position: fixed;
     </div>
@@ -246,9 +476,8 @@
                 A float div with overflow auto. A float div with overflow auto. A float div with overflow auto.
             </div>
             <pre>
-ベテルギウス 參宿四(複歌) 
-by 優里
-
+<h4>ベテルギウス 參宿四(複歌)
+by 優里</h4> 
 僕ら見つけあって　手繰りあって　同じ空
 boku ra mitsuke atte     taguri atte     onaji sora
 我們互相發現彼此　互相牽引　在同片天空底下
@@ -353,5 +582,19 @@ var person = {
             </tr>
         </table>
     </div>
+    <script>
+        const wk10InfoBtn = document.querySelector('#wk10InfoBtn');
+        const wk10DetailPanel = document.querySelector('#wk10DetailPanel');
+
+        wk10InfoBtn.addEventListener('click', function () {
+            wk10DetailPanel.classList.toggle('wk10-is-visible');
+
+            if (wk10DetailPanel.classList.contains('wk10-is-visible')) {
+                wk10InfoBtn.textContent = '收起資訊';
+            } else {
+                wk10InfoBtn.textContent = '查看資訊';
+            }
+        });
+    </script>
 </body>
 </html>
